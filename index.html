@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Wyatt Sucks  -  Developer Resources</title>
+    <meta name="description" content="Wyatt Sucks at almost everything. He's okay at programming, though.">
+    <meta name="keywords" content="development, resources, tools, documentation, programming">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            transition: opacity 1s ease;
+        }
+        .splash-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: #007BFF;
+            color: white;
+            font-size: 5em;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+        .splash-text {
+            transition: transform 1s ease, opacity 1s ease;
+        }
+        .main-content {
+            display: none;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: opacity 1s ease;
+        }
+        .visible {
+            display: block;
+            opacity: 1;
+        }
+        .hidden {
+            opacity: 0;
+        }
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            transition: transform 1s ease;
+            z-index: -1;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-screen" id="splash-screen">
+        <div class="splash-text" id="splash-text">
+            WYATT SUCKS
+            <br>
+            DEV EDITION
+        </div>
+        <div class="circle" id="circle"></div>
+    </div>
+
+    <div class="main-content hidden" id="main-content">
+        
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const splashText = document.getElementById('splash-text');
+            splashText.style.transform = 'translateY(-100px) scale(0.5)';
+            splashText.style.opacity = '0';
+            document.getElementById('circle').style.transform = 'scale(1)';
+
+            setTimeout(() => {
+                document.getElementById('splash-screen').style.display = 'none';
+                document.getElementById('main-content').classList.remove('hidden');
+                document.getElementById('main-content').classList.add('visible');
+            }, 1000);
+        }, 3000);
+    </script>
+
+</body>
+</html>
